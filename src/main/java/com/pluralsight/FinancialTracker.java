@@ -41,7 +41,6 @@ public class FinancialTracker {
        ------------------------------------------------------------------ */
     public static void main(String[] args) {
         loadTransactions(FILE_NAME);
-
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
