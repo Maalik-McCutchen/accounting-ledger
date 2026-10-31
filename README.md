@@ -29,12 +29,11 @@
 
 ## User Stories
 
-<!-- The stories you worked from, one per bullet, in the format you learned in Workbook 3b:
-     As a [type of user], I want [some goal] so that [some reason].
-     Same text as the cards on your GitHub project board. -->
-
-- As a ..., I want ..., so that ...
-- As a ..., I want ..., so that ...
+- As a user, I want to navigate through the home screen, or exit so that I can access different features.
+- As a user, I want to add deposits,record payments, so that I can keep track of money coming into and going out of my account.
+- As a user, I want to view all transactions with the newest transactions first, so that I can review my financial activity.
+- As a user, I want to search transactions by vendor name so that I can find purchases or payments.
+- As a user, I want to move between the home screen, ledger screen, and reports screen so that I can navigate the application.
 
 ## Setup
 
