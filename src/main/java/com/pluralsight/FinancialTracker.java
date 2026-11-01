@@ -1,6 +1,8 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.time.LocalDateTime;
+import java.io.FileWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -118,7 +120,32 @@ public class FinancialTracker {
      * Store the amount as-is (positive) and append to the file.
      */
     private static void addDeposit(Scanner scanner) {
-        // TODO
+        System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
+        String userDateTime = scanner.nextLine().trim();
+        LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
+        LocalDate date = dateTime.toLocalDate();
+        LocalTime time = dateTime.toLocalTime();
+
+        System.out.println("Enter a description: ");
+        String description = scanner.nextLine().trim();
+
+        System.out.println("Enter a vendor: ");
+        String vendor = scanner.nextLine().trim();
+
+        System.out.println("Enter the amount: ");
+        double amount = scanner.nextDouble();
+
+        while (amount <= 0) {
+            System.out.println("Please enter a positive amount: ");
+            amount = scanner.nextDouble();
+        }
+        scanner.nextLine();
+
+        Transaction deposit = new Transaction(date, time, description, vendor, amount);
+        transactions.add(deposit);
+
+
+
     }
 
     /**
