@@ -1,10 +1,7 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
+import java.io.*;
 import java.time.LocalDateTime;
-import java.io.FileWriter;
-import java.io.File;
-import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -123,6 +120,7 @@ public class FinancialTracker {
         System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
         String userDateTime = scanner.nextLine().trim();
         LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
+
         LocalDate date = dateTime.toLocalDate();
         LocalTime time = dateTime.toLocalTime();
 
@@ -143,7 +141,22 @@ public class FinancialTracker {
 
         Transaction deposit = new Transaction(date, time, description, vendor, amount);
         transactions.add(deposit);
+        try {
+            FileWriter writer = new FileWriter(FILE_NAME, true);
+            String userFormattedDate = deposit.getDate().format(DATE_FMT);
+            String userFormattedTime = deposit.getTime().format(TIME_FMT);
+            String userDescription = deposit.getDescription();
+            String userVendor = deposit.getVendor();
+            double userAmount = deposit.getAmount();
 
+            writer.write(userFormattedDate + "|" + userFormattedTime + "|" + userDescription + "|" + userVendor + "|" + userAmount);
+            writer.write("\n");
+
+            writer.close();
+
+        } catch (IOException e) {
+            System.err.println("Unable to save transaction to file.");
+        }
 
 
     }
