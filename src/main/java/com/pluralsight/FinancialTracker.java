@@ -117,10 +117,10 @@ public class FinancialTracker {
      * Store the amount as-is (positive) and append to the file.
      */
     private static void addDeposit(Scanner scanner) {
+        try {
         System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
         String userDateTime = scanner.nextLine().trim();
         LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
-
         LocalDate date = dateTime.toLocalDate();
         LocalTime time = dateTime.toLocalTime();
 
@@ -141,7 +141,7 @@ public class FinancialTracker {
 
         Transaction deposit = new Transaction(date, time, description, vendor, amount);
         transactions.add(deposit);
-        try {
+
             FileWriter writer = new FileWriter(FILE_NAME, true);
             String userFormattedDate = deposit.getDate().format(DATE_FMT);
             String userFormattedTime = deposit.getTime().format(TIME_FMT);
@@ -154,7 +154,7 @@ public class FinancialTracker {
 
             writer.close();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("Unable to save transaction to file.");
         }
 
