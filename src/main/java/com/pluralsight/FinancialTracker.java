@@ -247,14 +247,17 @@ public class FinancialTracker {
         ArrayList<Transaction> sortedTransactions = new ArrayList<>(transactions);
         Collections.reverse(sortedTransactions);
         for (Transaction sortedTransaction : sortedTransactions) {
-            System.out.printf("%s | %s | %s | %s | %.2f%n",
-                    sortedTransaction.getDate(),
-                    sortedTransaction.getTime(),
-                    sortedTransaction.getDescription(),
-                    sortedTransaction.getVendor(),
-                    sortedTransaction.getAmount());
-
+            printTransaction(sortedTransaction);
         }
+    }
+    private static void printTransaction(Transaction transaction) {
+            System.out.printf("%s | %s | %s | %s | %.2f%n",
+                    transaction.getDate(),
+                    transaction.getTime(),
+                    transaction.getDescription(),
+                    transaction.getVendor(),
+                    transaction.getAmount());
+
     }
 
     private static void displayDeposits() { /* TODO – only amount > 0               */ }
