@@ -167,7 +167,49 @@ public class FinancialTracker {
      * then converted to a negative amount before storing.
      */
     private static void addPayment(Scanner scanner) {
-        // TODO
+        try {
+        System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
+        String userDateTime = scanner.nextLine().trim();
+        LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
+        LocalDate date = dateTime.toLocalDate();
+        LocalTime time = dateTime.toLocalTime();
+
+        System.out.println("Enter a description: ");
+        String description = scanner.nextLine().trim();
+
+        System.out.println("Enter a vendor: ");
+        String vendor = scanner.nextLine().trim();
+
+        System.out.println("Enter the amount: ");
+        double amount = scanner.nextDouble();
+
+
+        while (amount <= 0) {
+            System.out.println("Please enter a positive amount: ");
+            amount = scanner.nextDouble();
+        }
+       double userPayment = amount * -1;
+        scanner.nextLine();
+
+        Transaction payment = new Transaction(date, time, description, vendor, userPayment);
+        transactions.add(payment);
+
+        FileWriter writer = new FileWriter(FILE_NAME, true);
+        String userFormattedDate = payment.getDate().format(DATE_FMT);
+        String userFormattedTime = payment.getTime().format(TIME_FMT);
+        String userDescription = payment.getDescription();
+        String userVendor = payment.getVendor();
+        double userAmount = payment.getAmount();
+
+        writer.write(userFormattedDate + "|" + userFormattedTime + "|" + userDescription + "|" + userVendor + "|" + userAmount);
+        writer.write("\n");
+
+
+        writer.close();
+
+        } catch (Exception e) {
+            System.err.println("Unable to save transaction to file.");
+        }
     }
 
     /* ------------------------------------------------------------------
