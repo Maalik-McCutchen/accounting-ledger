@@ -261,7 +261,9 @@ public class FinancialTracker {
     }
 
     private static void displayDeposits() {
-        for (Transaction transaction : transactions) {
+        ArrayList<Transaction> sortedTransactions = new ArrayList<>(transactions);
+        Collections.reverse(sortedTransactions);
+        for (Transaction transaction : sortedTransactions) {
             if (transaction.getAmount() > 0)
                 printTransaction(transaction);
 
@@ -269,7 +271,9 @@ public class FinancialTracker {
     }
 
     private static void displayPayments() {
-        for (Transaction transaction : transactions) {
+        ArrayList<Transaction> sortedTransactions = new ArrayList<>(transactions);
+        Collections.reverse(sortedTransactions);
+        for (Transaction transaction : sortedTransactions) {
             if (transaction.getAmount() < 0)
                 printTransaction(transaction);
 
