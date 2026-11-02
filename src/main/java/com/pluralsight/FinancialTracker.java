@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /*
@@ -242,7 +243,19 @@ public class FinancialTracker {
     /* ------------------------------------------------------------------
        Display helpers: show data in neat columns
        ------------------------------------------------------------------ */
-    private static void displayLedger() { /* TODO – print all transactions in column format, newest first */ }
+    private static void displayLedger() {
+        ArrayList<Transaction> sortedTransactions = new ArrayList<>(transactions);
+        Collections.reverse(sortedTransactions);
+        for (Transaction sortedTransaction : sortedTransactions) {
+            System.out.printf("%s | %s | %s | %s | %.2f%n",
+                    sortedTransaction.getDate(),
+                    sortedTransaction.getTime(),
+                    sortedTransaction.getDescription(),
+                    sortedTransaction.getVendor(),
+                    sortedTransaction.getAmount());
+
+        }
+    }
 
     private static void displayDeposits() { /* TODO – only amount > 0               */ }
 
