@@ -300,10 +300,31 @@ public class FinancialTracker {
             String input = scanner.nextLine().trim();
 
             switch (input) {
-                case "1" -> {/* TODO – month-to-date report */ }
-                case "2" -> {/* TODO – previous month report */ }
-                case "3" -> {/* TODO – year-to-date report   */ }
-                case "4" -> {/* TODO – previous year report  */ }
+                case "1" -> {
+                    LocalDate today = LocalDate.now();
+                    LocalDate start = today.withDayOfMonth(1);
+                    filterTransactionsByDate(start, today);
+                }
+                case "2" -> {
+                    LocalDate previousMonth = LocalDate.now().minusMonths(1);
+
+                    LocalDate start = previousMonth.withDayOfMonth(1);
+                    LocalDate end = previousMonth.withDayOfMonth(previousMonth.lengthOfMonth());
+                    filterTransactionsByDate(start, end);
+                }
+                case "3" -> {
+                    LocalDate today = LocalDate.now();
+                    LocalDate start = today.withDayOfYear(1);
+                    filterTransactionsByDate(start, today);
+
+                }
+                case "4" -> {
+                    LocalDate previousYear = LocalDate.now().minusYears(1);
+
+                    LocalDate start = previousYear.withDayOfYear(1);
+                    LocalDate end = previousYear.withDayOfYear(previousYear.lengthOfYear());
+                    filterTransactionsByDate(start, end);
+                }
                 case "5" -> {/* TODO – prompt for vendor then report */ }
                 case "6" -> customSearch(scanner);
                 case "0" -> running = false;
@@ -316,7 +337,25 @@ public class FinancialTracker {
        Reporting helpers
        ------------------------------------------------------------------ */
     private static void filterTransactionsByDate(LocalDate start, LocalDate end) {
-        // TODO – iterate transactions, print those within the range
+        ArrayList<Transaction> sortedTransactions = new ArrayList<>(transactions);
+        Collections.reverse(sortedTransactions);
+
+        int filter = 0;
+        for (Transaction sortedTransaction : sortedTransactions) {
+
+            LocalDate transactionDate = sortedTransaction.getDate();
+
+            if (!transactionDate.isBefore(start) && !transactionDate.isAfter(end)) {
+                filter++;
+
+                printTransaction(sortedTransaction);
+            }
+        }
+
+            if (filter == 0) {
+                System.out.println("No transactions found for this date range.");
+            }
+
     }
 
     private static void filterTransactionsByVendor(String vendor) {
