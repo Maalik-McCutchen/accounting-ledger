@@ -119,29 +119,29 @@ public class FinancialTracker {
      */
     private static void addDeposit(Scanner scanner) {
         try {
-        System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
-        String userDateTime = scanner.nextLine().trim();
-        LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
-        LocalDate date = dateTime.toLocalDate();
-        LocalTime time = dateTime.toLocalTime();
+            System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
+            String userDateTime = scanner.nextLine().trim();
+            LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
+            LocalDate date = dateTime.toLocalDate();
+            LocalTime time = dateTime.toLocalTime();
 
-        System.out.println("Enter a description: ");
-        String description = scanner.nextLine().trim();
+            System.out.println("Enter a description: ");
+            String description = scanner.nextLine().trim();
 
-        System.out.println("Enter a vendor: ");
-        String vendor = scanner.nextLine().trim();
+            System.out.println("Enter a vendor: ");
+            String vendor = scanner.nextLine().trim();
 
-        System.out.println("Enter the amount: ");
-        double amount = scanner.nextDouble();
+            System.out.println("Enter the amount: ");
+            double amount = scanner.nextDouble();
 
-        while (amount <= 0) {
-            System.out.println("Please enter a positive amount: ");
-            amount = scanner.nextDouble();
-        }
-        scanner.nextLine();
+            while (amount <= 0) {
+                System.out.println("Please enter a positive amount: ");
+                amount = scanner.nextDouble();
+            }
+            scanner.nextLine();
 
-        Transaction deposit = new Transaction(date, time, description, vendor, amount);
-        transactions.add(deposit);
+            Transaction deposit = new Transaction(date, time, description, vendor, amount);
+            transactions.add(deposit);
 
             FileWriter writer = new FileWriter(FILE_NAME, true);
             String userFormattedDate = deposit.getDate().format(DATE_FMT);
@@ -169,44 +169,44 @@ public class FinancialTracker {
      */
     private static void addPayment(Scanner scanner) {
         try {
-        System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
-        String userDateTime = scanner.nextLine().trim();
-        LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
-        LocalDate date = dateTime.toLocalDate();
-        LocalTime time = dateTime.toLocalTime();
+            System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
+            String userDateTime = scanner.nextLine().trim();
+            LocalDateTime dateTime = LocalDateTime.parse(userDateTime, DATETIME_FMT);
+            LocalDate date = dateTime.toLocalDate();
+            LocalTime time = dateTime.toLocalTime();
 
-        System.out.println("Enter a description: ");
-        String description = scanner.nextLine().trim();
+            System.out.println("Enter a description: ");
+            String description = scanner.nextLine().trim();
 
-        System.out.println("Enter a vendor: ");
-        String vendor = scanner.nextLine().trim();
+            System.out.println("Enter a vendor: ");
+            String vendor = scanner.nextLine().trim();
 
-        System.out.println("Enter the amount: ");
-        double amount = scanner.nextDouble();
-
-
-        while (amount <= 0) {
-            System.out.println("Please enter a positive amount: ");
-            amount = scanner.nextDouble();
-        }
-       double userPayment = amount * -1;
-        scanner.nextLine();
-
-        Transaction payment = new Transaction(date, time, description, vendor, userPayment);
-        transactions.add(payment);
-
-        FileWriter writer = new FileWriter(FILE_NAME, true);
-        String userFormattedDate = payment.getDate().format(DATE_FMT);
-        String userFormattedTime = payment.getTime().format(TIME_FMT);
-        String userDescription = payment.getDescription();
-        String userVendor = payment.getVendor();
-        double userAmount = payment.getAmount();
-
-        writer.write(userFormattedDate + "|" + userFormattedTime + "|" + userDescription + "|" + userVendor + "|" + userAmount);
-        writer.write("\n");
+            System.out.println("Enter the amount: ");
+            double amount = scanner.nextDouble();
 
 
-        writer.close();
+            while (amount <= 0) {
+                System.out.println("Please enter a positive amount: ");
+                amount = scanner.nextDouble();
+            }
+            double userPayment = amount * -1;
+            scanner.nextLine();
+
+            Transaction payment = new Transaction(date, time, description, vendor, userPayment);
+            transactions.add(payment);
+
+            FileWriter writer = new FileWriter(FILE_NAME, true);
+            String userFormattedDate = payment.getDate().format(DATE_FMT);
+            String userFormattedTime = payment.getTime().format(TIME_FMT);
+            String userDescription = payment.getDescription();
+            String userVendor = payment.getVendor();
+            double userAmount = payment.getAmount();
+
+            writer.write(userFormattedDate + "|" + userFormattedTime + "|" + userDescription + "|" + userVendor + "|" + userAmount);
+            writer.write("\n");
+
+
+            writer.close();
 
         } catch (Exception e) {
             System.err.println("Unable to save transaction to file.");
@@ -250,13 +250,14 @@ public class FinancialTracker {
             printTransaction(sortedTransaction);
         }
     }
+
     private static void printTransaction(Transaction transaction) {
-            System.out.printf("%s | %s | %s | %s | %.2f%n",
-                    transaction.getDate(),
-                    transaction.getTime(),
-                    transaction.getDescription(),
-                    transaction.getVendor(),
-                    transaction.getAmount());
+        System.out.printf("%s | %s | %s | %s | %.2f%n",
+                transaction.getDate(),
+                transaction.getTime(),
+                transaction.getDescription(),
+                transaction.getVendor(),
+                transaction.getAmount());
 
     }
 
@@ -358,9 +359,9 @@ public class FinancialTracker {
             }
         }
 
-            if (filter == 0) {
-                System.out.println("No transactions found for this date range.");
-            }
+        if (filter == 0) {
+            System.out.println("No transactions found for this date range.");
+        }
 
     }
 
@@ -373,9 +374,9 @@ public class FinancialTracker {
 
         for (Transaction sortedTransaction : sortedTransactions) {
 
-            String transactionionVendor = sortedTransaction.getVendor();
+            String transactionVendor = sortedTransaction.getVendor();
 
-            if (transactionionVendor.equals(vendor)) {
+            if (transactionVendor.equals(vendor)) {
                 filter++;
 
                 printTransaction(sortedTransaction);
@@ -389,20 +390,46 @@ public class FinancialTracker {
     }
 
     private static void customSearch(Scanner scanner) {
-        // TODO – prompt for any combination of date range, description,
-        //        vendor, and exact amount, then display matches
+
+        ArrayList<Transaction> customSearchTransactions = new ArrayList<>(transactions);
+        Collections.reverse(customSearchTransactions);
+
+        System.out.println("Start Date: ");
+        String startDate = scanner.nextLine().trim();
+
+
+        LocalDate userStartDate = parseDate(startDate);
+
     }
 
     /* ------------------------------------------------------------------
        Utility parsers (you can reuse in many places)
        ------------------------------------------------------------------ */
     private static LocalDate parseDate(String s) {
-        /* TODO – return LocalDate or null */
+
+        if (s.isBlank())
+            return null;
+
+        try {
+            LocalDate date = LocalDate.parse(s);
+
+                return date;
+
+        } catch (Exception e) {
+
+            System.out.println("Invalid date format.");
+        }
         return null;
     }
 
     private static Double parseDouble(String s) {
-        /* TODO – return Double   or null */
+        try {
+            double amount = Double.parseDouble(s);
+            return amount;
+        } catch (Exception e) {
+
+            System.out.println("Invalid amount format.");
+        }
         return null;
     }
 }
