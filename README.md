@@ -164,6 +164,17 @@
 - Transactions are filtered using the search values I provide.
 - Values I did not provide for fields are not filtered during search.
 
+## 12. README
+
+- As a user, I want an Informational README, 
+  so that I can understand the application's purpose, features, and how to run it.
+
+**Acceptance criteria**
+
+- The README describes the project and its features.
+- The README explains the setup and how to run the application.
+- The README information from the project and screenshots.
+
 ## Setup
 
 ### Prerequisites
