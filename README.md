@@ -29,11 +29,140 @@
 
 ## User Stories
 
-- As a user, I want to navigate through the home screen, or exit so that I can access different features.
-- As a user, I want to add deposits,record payments, so that I can keep track of money coming into and going out of my account.
-- As a user, I want to view all transactions with the newest transactions first, so that I can review my financial activity.
-- As a user, I want to search transactions by vendor name so that I can find purchases or payments.
-- As a user, I want to move between the home screen, ledger screen, and reports screen so that I can navigate the application.
+## 1. Add Deposit
+
+**User Story**
+
+- As a user, I want to add a deposit with its date, description, vendor and amount,
+  so that the money I received is saved in my ledger. 
+
+**Acceptance criteria**
+
+- I am asked for the date and time, the description, the vendor and the amount
+- the amount must be positive
+- after saving, the deposit is a new line at the end of transactions.csv
+
+## 2. Make Payment
+
+**User Story**
+
+- As a user, I want to make a payment with its date, time, description, vendor, and amount, 
+  so that I can track money going out of my account.
+
+**Acceptance criteria**
+
+- I am asked for the date and time, the description, the vendor and the amount
+- The payment is stored as a negative amount.
+- After saving, the payment is added to transactions.csv.
+
+## 3. Ledger - All
+
+**User Story**
+
+- As a user, I want to view all transactions with the newest entries first, 
+  so that I can review my financial history.
+
+**Acceptance criteria**
+
+- All transactions are displayed
+- Transactions are sorted from newest to oldest.
+
+## 4. Ledger - Deposits
+
+**User Story**
+
+- As a user, I want to view only deposits, 
+  so that I can review money coming into my account.
+
+**Acceptance criteria**
+
+- Only transactions with positive amounts are displayed.
+- Deposits are displayed with the newest entries first.
+
+## 5. Ledger - Payments
+
+**User Story**
+
+- As a user, I want to view only payments, 
+  so that I can keep track of money going out of my account.
+
+**Acceptance criteria**
+
+- Only transactions with negative amounts are displayed.
+- Payments are displayed with the newest entries first.
+
+## 6. Reports - Month To Date
+
+**User Story**
+
+- As a user, I want to view transactions from the beginning of the month through today, 
+  so that I can review my monthly financial history.
+
+**Acceptance criteria**
+
+- Only transactions from the current month are displayed.
+- Transactions are displayed with the newest entries first.
+
+## 7. Reports - Previous Month
+
+**User Story**
+
+- As a user, I want to view transactions from the previous month, 
+  so that I can view my financial history from last month.
+
+**Acceptance criteria**
+
+- Only transactions from the previous month are displayed.
+- Transactions are displayed with the newest entries first.
+
+## 8. Reports - Year To Date
+
+**User Story**
+
+- As a user, I want to view transactions from the beginning of the year through today,
+  so that I can review my yearly financial history.
+
+**Acceptance criteria**
+
+- Only transactions from the current year are displayed.
+- Transactions are displayed with the newest entries first.
+
+## 9. Reports - Previous Year
+
+**User Story**
+
+- As a user, I want to view transactions from the previous year,
+  so that I can view my financial history from last year.
+
+**Acceptance criteria**
+
+- Only transactions from the previous year are displayed.
+- Transactions are displayed with the newest entries first.
+
+## 10. Reports - Search by Vendor
+
+**User Story**
+
+- As a user, I want to search transactions by vendor name, 
+  so that I can find the vendor name I'm searching for.
+
+**Acceptance criteria**
+
+- I am asked to enter a vendor name.
+- Transactions matching the vendor name are displayed.
+
+## 11. Reports - Custom Search
+
+**User Story**
+
+- As a user, I want to search transactions using multiple search values, 
+  so that I can find transactions based on their details.
+
+**Acceptance criteria**
+
+- I am asked to enter a start date, end date, description, vendor, and amount.
+- Transactions are filtered using the search values I provide.
+- Values I did not provide for fields are not filtered during search.
 
 ## Setup
 
