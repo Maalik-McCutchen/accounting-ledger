@@ -325,7 +325,13 @@ public class FinancialTracker {
                     LocalDate end = previousYear.withDayOfYear(previousYear.lengthOfYear());
                     filterTransactionsByDate(start, end);
                 }
-                case "5" -> {/* TODO – prompt for vendor then report */ }
+                case "5" -> {
+                    System.out.println("Enter a vendor: ");
+                    String vendor = scanner.nextLine().trim();
+
+                    filterTransactionsByVendor(vendor);
+
+                }
                 case "6" -> customSearch(scanner);
                 case "0" -> running = false;
                 default -> System.out.println("Invalid option");
@@ -359,7 +365,27 @@ public class FinancialTracker {
     }
 
     private static void filterTransactionsByVendor(String vendor) {
-        // TODO – iterate transactions, print those with matching vendor
+
+        ArrayList<Transaction> sortedTransactions = new ArrayList<>(transactions);
+        Collections.reverse(sortedTransactions);
+
+        int filter = 0;
+
+        for (Transaction sortedTransaction : sortedTransactions) {
+
+            String transactionionVendor = sortedTransaction.getVendor();
+
+            if (transactionionVendor.equals(vendor)) {
+                filter++;
+
+                printTransaction(sortedTransaction);
+            }
+
+        }
+
+        if (filter == 0) {
+            System.out.println("Vendor not found.");
+        }
     }
 
     private static void customSearch(Scanner scanner) {
