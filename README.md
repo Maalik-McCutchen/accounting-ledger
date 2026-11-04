@@ -1,6 +1,4 @@
-# Project Title
-
-**Financial Tracker**
+# Financial Tracker
 
 - A console based financial tracker that records deposits and payments in a CSV file and allows users to review their transaction history.
 
@@ -183,20 +181,13 @@
 
 ### Data and configuration
 
-<!-- OPTIONAL. Anything the program needs that is not code: data files and where they must sit, files the
-     program creates, a database script to run first, a settings file to edit (connection, port).
-     If there is nothing, delete this subsection, heading included.
-     Example:
-     - `inventory.csv` sits at the project root, next to `pom.xml`. The program reads it at start.
-     - `logs.txt` is created by the program at the project root on the first run. -->
-
--
+- `transactions.csv` is stored in the project root directory and contains the application's transaction history.
+- If `transactions.csv` does not exist, the application creates it automatically when it runs.
 
 ## Technologies Used
 
 - Java 17
 - IntelliJ IDEA
-<!-- Add anything else you used: a library, Maven plugins, an external tool. For a console app this list is short. That is fine. -->
 
 ## Demo
 
@@ -212,10 +203,30 @@
      5. Commit the images with the rest of your work (Git > Commit shows them as unversioned files: tick them).
      Optional GIF: LICEcap (free, Windows and Mac, <https://www.cockos.com/licecap/>) records a region of the
      screen straight to a .gif. Keep it under 10 seconds and under 10 MB, save it into `images`. -->
+**Home Screen**
+![Main menu](![financial-tracker-back-to-home-screen-demo.gif](images/financial-tracker-back-to-home-screen-demo.gif)images/menu.pn)
 
-![Main menu](images/menu.png)
+**Deposit**
+![Add Deposit](![financial-tracker-deposit-demo.gif](images/financial-tracker-deposit-demo.gif))
 
-![One feature in action](images/feature.png)
+**Payments**
+![Add Payment](![financial-tracker-payment-demo.gif](images/financial-tracker-payment-demo.gif))
+
+**Ledger**
+![One feature in action](![financial-tracker-ledger-all-demo.gif](images/financial-tracker-ledger-all-demo.gif))
+![One feature in action](![financial-tracker-ledger-deposit-demo.gif](images/financial-tracker-ledger-deposit-demo.gif))
+![One feature in action](![financial-tracker-ledger-payments-demo.gif](images/financial-tracker-ledger-payments-demo.gif))
+
+**Reports**
+![One feature in action](![financial-tracker-reports-month-demo.gif](images/financial-tracker-reports-month-demo.gif))
+![One feature in action](![financial-tracker-reports-previous-month-demo.gif](images/financial-tracker-reports-previous-month-demo.gif))
+![One feature in action](![financial-tracker-reports-year-demo.gif](images/financial-tracker-reports-year-demo.gif))
+![One feature in action](![financial-tracker-reports-previous-year-demo.gif](images/financial-tracker-reports-previous-year-demo.gif))
+![One feature in action](![financial-tracker-reports-vendor-demo.gif](images/financial-tracker-reports-vendor-demo.gif))
+
+**Bonus**
+![One feature in action](![financial-tracker-reports-custom-search-demo.gif](images/financial-tracker-reports-custom-search-demo.gif))
+
 
 ## A piece of code I am proud of
 
