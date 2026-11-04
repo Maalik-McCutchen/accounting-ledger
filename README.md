@@ -13,16 +13,10 @@
 
 ## Features
 
-<!-- One bullet per thing the app can do, in the order of your menu. Mark bonuses.
-     For an API (Capstone 3), one line per endpoint instead: method, path, what it does.
-     Be honest: list what works. If something is half done, say so under Future Work instead.
-     Example:
-     - Shows every product in the store
-     - Searches products by name (bonus) -->
-
-- 
--
--
+- Displays the home screen with options to add a deposit, make a payment, view the ledger, or exit the application.   
+- The ledger menu allows users to view all transactions, view deposits, view payments, access reports, or return to the home screen from the ledger menu. 
+- The reports menu allows users to filter transactions by month to date, previous month, year to date, previous year, search by vendor,
+  or (bonus)custom search criteria through the reports menu.
 
 ## User Stories
 
