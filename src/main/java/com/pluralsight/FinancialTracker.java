@@ -399,12 +399,12 @@ public class FinancialTracker {
         System.out.println("Start Date: ");
         String startDate = scanner.nextLine().trim();
 
-        LocalDate userStartDate = parseDate(startDate);
+        LocalDate userStartDate = parseDate(startDate, scanner);
 
         System.out.println("End Date: ");
         String endDate = scanner.nextLine().trim();
 
-        LocalDate userEndDate = parseDate(endDate);
+        LocalDate userEndDate = parseDate(endDate, scanner);
 
         System.out.println("Description: ");
         String userDescription = scanner.nextLine().trim();
@@ -415,7 +415,7 @@ public class FinancialTracker {
         System.out.println("Amount: ");
         String numberAmount = scanner.nextLine().trim();
 
-        Double userAmount = parseDouble(numberAmount);
+        Double userAmount = parseDouble(numberAmount, scanner);
 
         for (Transaction sortedTransaction : customSearchTransactions) {
             LocalDate transactionDate = sortedTransaction.getDate();
@@ -462,7 +462,11 @@ public class FinancialTracker {
     /* ------------------------------------------------------------------
        Utility parsers (you can reuse in many places)
        ------------------------------------------------------------------ */
-    private static LocalDate parseDate(String s) {
+    private static LocalDate parseDate(String s, Scanner scanner) {
+
+        boolean isValid = false;
+
+        while (!isValid) {
 
         if (s.isBlank())
             return null;
@@ -470,16 +474,23 @@ public class FinancialTracker {
         try {
             LocalDate date = LocalDate.parse(s);
 
+            isValid = true;
+
                 return date;
 
         } catch (Exception e) {
 
-            System.out.println("Invalid date format.");
+            System.out.println("Enter date again (yyyy-MM-dd), or press Enter to skip: ");
+            s = scanner.nextLine();
         }
-        return null;
     }
+        return null;
 
-    private static Double parseDouble(String s) {
+}
+
+    private static Double parseDouble(String s, Scanner scanner) {
+
+        while (true) {
 
         if (s.isBlank())
             return null;
@@ -491,8 +502,10 @@ public class FinancialTracker {
 
         } catch (Exception e) {
 
-            System.out.println("Invalid amount format.");
+            System.out.println("Please enter a valid amount, or press Enter to skip: ");
+            s = scanner.nextLine().trim();
+            }
         }
-        return null;
+
     }
 }
