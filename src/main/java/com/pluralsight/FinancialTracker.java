@@ -394,11 +394,68 @@ public class FinancialTracker {
         ArrayList<Transaction> customSearchTransactions = new ArrayList<>(transactions);
         Collections.reverse(customSearchTransactions);
 
+        int count = 0;
+
         System.out.println("Start Date: ");
         String startDate = scanner.nextLine().trim();
 
-
         LocalDate userStartDate = parseDate(startDate);
+
+        System.out.println("End Date: ");
+        String endDate = scanner.nextLine().trim();
+
+        LocalDate userEndDate = parseDate(endDate);
+
+        System.out.println("Description: ");
+        String userDescription = scanner.nextLine().trim();
+
+        System.out.println("Vendor: ");
+        String userVendor = scanner.nextLine().trim();
+
+        System.out.println("Amount: ");
+        String numberAmount = scanner.nextLine().trim();
+
+        Double userAmount = parseDouble(numberAmount);
+
+        for (Transaction sortedTransaction : customSearchTransactions) {
+            LocalDate transactionDate = sortedTransaction.getDate();
+
+
+            if (userStartDate != null && transactionDate.isBefore(userStartDate)) {
+                continue;
+            }
+            if (userEndDate != null && transactionDate.isAfter(userEndDate)) {
+
+                continue;
+            }
+
+            String description = sortedTransaction.getDescription();
+
+            if (!userDescription.isBlank() && !userDescription.equals(description)) {
+                continue;
+            }
+
+            String vendor = sortedTransaction.getVendor();
+
+            if (!userVendor.isBlank() && !userVendor.equals(vendor)) {
+                continue;
+            }
+
+            double amount = sortedTransaction.getAmount();
+
+            if (userAmount != null && !userAmount.equals(amount)) {
+                continue;
+            }
+
+            count++;
+            printTransaction(sortedTransaction);
+
+        }
+
+        if (count == 0) {
+            System.out.println("No transactions found.");
+
+        }
 
     }
 
@@ -423,9 +480,15 @@ public class FinancialTracker {
     }
 
     private static Double parseDouble(String s) {
+
+        if (s.isBlank())
+            return null;
+
         try {
+
             double amount = Double.parseDouble(s);
             return amount;
+
         } catch (Exception e) {
 
             System.out.println("Invalid amount format.");
