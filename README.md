@@ -1,18 +1,15 @@
 # Project Title
 
-<!-- HOW TO USE THIS TEMPLATE
-     Save it as README.md at the root of your project, next to pom.xml. Replace every comment like this one
-     with your own text; comments do not show on GitHub, so what you leave untouched shows as an empty heading.
-     Two sections are optional and say so: Class Diagram, and Data and configuration. When your project does not
-     need one, delete the whole section, heading included. Every other section stays. -->
+**Financial Tracker**
 
-<!-- One sentence under the title: what the app is, for whom.
-     Example: A console app that keeps a store's inventory in a csv file and lets a clerk search it. -->
+- A console based financial tracker that records deposits and payments in a CSV file and allows users to review their transaction history.
 
 ## Description of the Project
 
-<!-- Three to five sentences. What the application does, who uses it, what problem it solves.
-     Write it for someone who has never seen the workbook: a recruiter, a classmate, you in six months. -->
+- This application allows users to add deposits, make payments, and view their transaction history through a console-based menu.
+- All transactions are saved in a CSV file so users can keep track of their financial history.
+- Users can also access the reports menu to filter transactions by date, search by vendor, or use custom search options to find specific transactions.
+- The goal of this application is to help users organize and review their financial transactions in one place.
 
 ## Features
 
@@ -23,7 +20,7 @@
      - Shows every product in the store
      - Searches products by name (bonus) -->
 
--
+- 
 -
 -
 
