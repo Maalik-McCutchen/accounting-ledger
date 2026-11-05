@@ -191,18 +191,6 @@
 
 ## Demo
 
-<!-- Pictures of the app running: the console for a console app, Insomnia or Swagger for an API.
-     Screenshots are enough; a GIF is a bonus.
-     1. Create a folder named `images` at the project root, next to `pom.xml`.
-     2. Take screenshots of the app in the IntelliJ console (the menu, one feature, one error message):
-          Windows: Win + Shift + S, drag a rectangle, then paste into Paint and save as PNG, or open the
-                   notification and save. Save into the `images` folder.
-          Mac:     Shift + Cmd + 4, drag a rectangle. The file lands on the Desktop; move it into `images`.
-     3. Name the files by what they show: `images/menu.png`, `images/search.png`.
-     4. Reference each one below with a relative path. No spaces in file names.
-     5. Commit the images with the rest of your work (Git > Commit shows them as unversioned files: tick them).
-     Optional GIF: LICEcap (free, Windows and Mac, <https://www.cockos.com/licecap/>) records a region of the
-     screen straight to a .gif. Keep it under 10 seconds and under 10 MB, save it into `images`. -->
 **Home Screen**
 ![Main menu](![financial-tracker-back-to-home-screen-demo.gif](images/financial-tracker-back-to-home-screen-demo.gif)images/menu.pn)
 
@@ -226,7 +214,6 @@
 
 **Bonus**
 ![Custom Search](![financial-tracker-reports-custom-search-demo.gif](images/financial-tracker-reports-custom-search-demo.gif))
-
 
 ## A piece of code I am proud of
 
@@ -264,8 +251,6 @@
 
 ## Resources
 
-<!-- What helped you: the workbook, the week's hub pages, a tutorial, a documentation page. Real links. -->
-
 - Java YearUp Fall 2026 hub: <https://raymaroun.github.io/yearup-java-fall2026/>
 - https://www.geeksforgeeks.org/java/file-exists-method-in-java-with-examples/
 - https://www.tutorialspoint.com/javatime/javatime_monthday_withdayofmonth.htm
@@ -275,13 +260,9 @@
 
 ## Author
 
-<!-- Your name and, if you like, your GitHub profile link. For a team workshop, one line per person with what each one built. -->
-
 - **Maalik** - [GitHub]https://github.com/Maalik-McCutchen
 
 ## Thanks
-
-<!-- Optional. The people who helped: the instructor, a classmate who debugged with you, a mentor. -->
 
 - Thank you to Raymond for being patient with us as we learned Java over the past four weeks 
   and for providing us with more than enough resources for our exercises, workshops, capstones, and study time. 
