@@ -1,6 +1,9 @@
 package com.pluralsight;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,19 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-/*
- * Capstone skeleton – personal finance tracker.
- * ------------------------------------------------
- * File format  (pipe-delimited)
- *     yyyy-MM-dd|HH:mm:ss|description|vendor|amount
- * A deposit has a positive amount; a payment is stored
- * as a negative amount.
- *
- * TODO: create the Transaction class in this package first.
- *       One object = one line of the file. Decide its fields from
- *       the file format above, add a constructor and getters.
- *       This class does not compile until Transaction exists.
- */
+
 public class FinancialTracker {
 
     /* ------------------------------------------------------------------
@@ -71,11 +62,7 @@ public class FinancialTracker {
        File I/O
        ------------------------------------------------------------------ */
 
-    /**
-     * Load transactions from FILE_NAME.
-     * • If the file doesn’t exist, create an empty one so that future writes succeed.
-     * • Each line looks like: date|time|description|vendor|amount
-     */
+    // Loads saved transactions from the CSV file into the transaction list.
     public static void loadTransactions(String fileName) {
         try {
             File file = new File(fileName);
@@ -107,16 +94,11 @@ public class FinancialTracker {
         }
     }
 
+    // Prompts the user for transaction details, asks for a positive amount, and saves the deposit.
+
     /* ------------------------------------------------------------------
        Add new transactions
        ------------------------------------------------------------------ */
-
-    /**
-     * Prompt for ONE date+time string in the format
-     * "yyyy-MM-dd HH:mm:ss", plus description, vendor, amount.
-     * Validate that the amount entered is positive.
-     * Store the amount as-is (positive) and append to the file.
-     */
     private static void addDeposit(Scanner scanner) {
         try {
             System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
@@ -162,11 +144,9 @@ public class FinancialTracker {
 
     }
 
-    /**
-     * Same prompts as addDeposit.
-     * Amount must be entered as a positive number,
-     * then converted to a negative amount before storing.
-     */
+     /* Prompts the user for transaction details, asks for a positive amount,
+        converts it to a negative amount, and saves the payment. */
+
     private static void addPayment(Scanner scanner) {
         try {
             System.out.println("Enter date and time: " + DATE_PATTERN + " " + TIME_PATTERN);
@@ -240,6 +220,8 @@ public class FinancialTracker {
         }
     }
 
+    // Displays ledger all, deposits, and payments and formats in columns from newest to least.
+
     /* ------------------------------------------------------------------
        Display helpers: show data in neat columns
        ------------------------------------------------------------------ */
@@ -281,6 +263,9 @@ public class FinancialTracker {
         }
 
     }
+
+    /* Prompts the user to display transactions history from the transaction.csv file,
+       month to date, previous month, year to date, previous year, search by vendor, custom search and displays them from newest to least. */
 
     /* ------------------------------------------------------------------
        Reports menu
@@ -340,6 +325,8 @@ public class FinancialTracker {
         }
     }
 
+    // Prompts the user to filter search transaction list by dates.
+
     /* ------------------------------------------------------------------
        Reporting helpers
        ------------------------------------------------------------------ */
@@ -365,6 +352,8 @@ public class FinancialTracker {
 
     }
 
+    // Prompts the user to filter search transaction list by vendor.
+
     private static void filterTransactionsByVendor(String vendor) {
 
         ArrayList<Transaction> sortedTransactions = new ArrayList<>(transactions);
@@ -388,6 +377,10 @@ public class FinancialTracker {
             System.out.println("Vendor not found.");
         }
     }
+
+    /*Prompts the user to enter start date, end date, description, vendor, amount.
+      If user does not enter one of the prompts it moves to the next prompt.
+    */
 
     private static void customSearch(Scanner scanner) {
 
@@ -459,6 +452,8 @@ public class FinancialTracker {
 
     }
 
+    // Prompts the user to check if they entered a valid date, or want to skip.
+
     /* ------------------------------------------------------------------
        Utility parsers (you can reuse in many places)
        ------------------------------------------------------------------ */
@@ -487,6 +482,8 @@ public class FinancialTracker {
         return null;
 
 }
+
+    // Prompts the user to check if they entered a valid amount, or want to skip.
 
     private static Double parseDouble(String s, Scanner scanner) {
 
