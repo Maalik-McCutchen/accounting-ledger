@@ -192,7 +192,7 @@
 ## Demo
 
 **Home Screen**
-![Main menu](![financial-tracker-back-to-home-screen-demo.gif](images/financial-tracker-back-to-home-screen-demo.gif)images/menu.pn)
+![Main menu](![financial-tracker-back-to-home-screen-demo.gif](financial-tracker-back-to-home-screen-demo.gif))
 
 **Deposit**
 ![Add Deposit](![financial-tracker-deposit-demo.gif](images/financial-tracker-deposit-demo.gif))
