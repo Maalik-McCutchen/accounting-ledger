@@ -213,53 +213,80 @@
 ![Add Payment](![financial-tracker-payment-demo.gif](images/financial-tracker-payment-demo.gif))
 
 **Ledger**
-![One feature in action](![financial-tracker-ledger-all-demo.gif](images/financial-tracker-ledger-all-demo.gif))
-![One feature in action](![financial-tracker-ledger-deposit-demo.gif](images/financial-tracker-ledger-deposit-demo.gif))
-![One feature in action](![financial-tracker-ledger-payments-demo.gif](images/financial-tracker-ledger-payments-demo.gif))
+![View All Transactions](![financial-tracker-ledger-all-demo.gif](images/financial-tracker-ledger-all-demo.gif))
+![View Deposits](![financial-tracker-ledger-deposit-demo.gif](images/financial-tracker-ledger-deposit-demo.gif))
+![View Payments](![financial-tracker-ledger-payments-demo.gif](images/financial-tracker-ledger-payments-demo.gif))
 
 **Reports**
-![One feature in action](![financial-tracker-reports-month-demo.gif](images/financial-tracker-reports-month-demo.gif))
-![One feature in action](![financial-tracker-reports-previous-month-demo.gif](images/financial-tracker-reports-previous-month-demo.gif))
-![One feature in action](![financial-tracker-reports-year-demo.gif](images/financial-tracker-reports-year-demo.gif))
-![One feature in action](![financial-tracker-reports-previous-year-demo.gif](images/financial-tracker-reports-previous-year-demo.gif))
-![One feature in action](![financial-tracker-reports-vendor-demo.gif](images/financial-tracker-reports-vendor-demo.gif))
+![Month To Date](![financial-tracker-reports-month-demo.gif](images/financial-tracker-reports-month-demo.gif))
+![Previous Month](![financial-tracker-reports-previous-month-demo.gif](images/financial-tracker-reports-previous-month-demo.gif))
+![Year To Date](![financial-tracker-reports-year-demo.gif](images/financial-tracker-reports-year-demo.gif))
+![Previous Year](![financial-tracker-reports-previous-year-demo.gif](images/financial-tracker-reports-previous-year-demo.gif))
+![Search By Vendor](![financial-tracker-reports-vendor-demo.gif](images/financial-tracker-reports-vendor-demo.gif))
 
 **Bonus**
-![One feature in action](![financial-tracker-reports-custom-search-demo.gif](images/financial-tracker-reports-custom-search-demo.gif))
+![Custom Search](![financial-tracker-reports-custom-search-demo.gif](images/financial-tracker-reports-custom-search-demo.gif))
 
 
 ## A piece of code I am proud of
 
-<!-- Paste one short block of your own code (5 to 15 lines) between the three backticks, then write two
-     or three sentences: what it does and why you chose to write it that way. This is what you show on
-     demo day and what you talk about in an interview. -->
+- This code reads the CSV file line by line and splits each line using the pipe delimiter. 
+  It uses the array indexes to extract the transaction details, converts the values into the appropriate data types, and creates a Transaction object. 
+  Finally, it adds each transaction to the transaction list.
 
-```java
+- I chose this piece of code because it was one of the most challenging parts of the project for me. 
+  I struggled with understanding how to, separate the data, and convert it into Java objects. 
+  After practicing, I became comfortable enough with the code, and now I can write it from memory. 
 
+```  
+            String line;
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            while ((line = reader.readLine()) != null) {
+
+                String[] tokens = line.split("\\|");
+                if (tokens.length != 5) {
+                    continue;
+                }
+                LocalDate date = LocalDate.parse(tokens[0]);
+                LocalTime time = LocalTime.parse(tokens[1]);
+                String description = tokens[2];
+                String vendor = tokens[3];
+                double amount = Double.parseDouble(tokens[4]);
+
+                Transaction transaction = new Transaction(date, time, description, vendor, amount);
+                transactions.add(transaction);
 ```
 
 ## Future Work
 
-<!-- What you would add or fix next, one bullet each. Unfinished bonuses belong here. -->
-
--
--
+- I would improve application by adding more loops to handle invalid user input. 
+  For example, if a user enters "abc" instead of a valid date or time, the application would ask them to try again instead of crashing.
 
 ## Resources
 
 <!-- What helped you: the workbook, the week's hub pages, a tutorial, a documentation page. Real links. -->
 
 - Java YearUp Fall 2026 hub: <https://raymaroun.github.io/yearup-java-fall2026/>
--
+- https://www.geeksforgeeks.org/java/file-exists-method-in-java-with-examples/
+- https://www.tutorialspoint.com/javatime/javatime_monthday_withdayofmonth.htm
+- https://raymaroun.github.io/yearup-java-fall2026/week-04/index.html#07-commit-message
+- https://howtodoinjava.com/java/date-time/java8-next-previous-date/
+- https://www.geeksforgeeks.org/java/localdate-lengthofmonth-method-in-java-with-examples/
 
 ## Author
 
 <!-- Your name and, if you like, your GitHub profile link. For a team workshop, one line per person with what each one built. -->
 
-- **Your Name**
+- **Maalik** - [GitHub]https://github.com/Maalik-McCutchen
 
 ## Thanks
 
 <!-- Optional. The people who helped: the instructor, a classmate who debugged with you, a mentor. -->
 
-- Thank you to ... for ...
+- Thank you to Raymond for being patient with us as we learned Java over the past four weeks 
+  and for providing us with more than enough resources for our exercises, workshops, capstones, and study time. 
+
+- Thank you to Adrian for asking so many questions about your code. 
+  It has helped me test my own logic and think about situations I might not have thought about.
+
+- Thank you to Zion for asking for help when you're stuck. It helps me test my logic and work through problems together.
