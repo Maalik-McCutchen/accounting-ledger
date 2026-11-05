@@ -195,25 +195,25 @@
 ![Main Menu](images/financial-tracker-back-to-home-screen-demo.gif)
 
 **Deposit**
-![Add Deposit](![financial-tracker-deposit-demo.gif])
+![Add Deposit](images/financial-tracker-deposit-demo.gif)
 
 **Payments**
-![Add Payment](![financial-tracker-payment-demo.gif])
+![Add Payment](images/financial-tracker-payment-demo.gif)
 
 **Ledger**
-![View All Transactions](![financial-tracker-ledger-all-demo.gif])
-![View Deposits](![financial-tracker-ledger-deposit-demo.gif])
-![View Payments](![financial-tracker-ledger-payments-demo.gif])
+![View All Transactions](images/financial-tracker-ledger-all-demo.gif)
+![View Deposits](images/financial-tracker-ledger-deposit-demo.gif)
+![View Payments](images/financial-tracker-ledger-payments-demo.gif)
 
 **Reports**
-![Month To Date](![financial-tracker-reports-month-demo.gif])
-![Previous Month](![financial-tracker-reports-previous-month-demo.gif])
-![Year To Date](![financial-tracker-reports-year-demo.gif])
-![Previous Year](![financial-tracker-reports-previous-year-demo.gif])
-![Search By Vendor](![financial-tracker-reports-vendor-demo.gif])
+![Month To Date](images/financial-tracker-reports-month-demo.gif)
+![Previous Month](images/financial-tracker-reports-previous-month-demo.gif)
+![Year To Date](images/financial-tracker-reports-year-demo.gif)
+![Previous Year](images/financial-tracker-reports-previous-year-demo.gif)
+![Search By Vendor](images/financial-tracker-reports-vendor-demo.gif)
 
 **Bonus**
-![Custom Search](![financial-tracker-reports-custom-search-demo.gif])
+![Custom Search](images/financial-tracker-reports-custom-search-demo.gif)
 
 ## A piece of code I am proud of
 
